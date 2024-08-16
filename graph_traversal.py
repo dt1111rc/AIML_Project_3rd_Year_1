@@ -63,3 +63,14 @@ for i in path:
     p.update(i)
 print("Number of nodes reachable from 12: ", len(p))
 
+
+# --------------------------------------------------------------
+MAC = uuid.getnode()
+starting_time = time.time()
+memory_before = psutil.Process().memory_info().rss / (1024 * 1024)
+memory_after = psutil.Process().memory_info().rss / (1024 * 1024)
+ending_time = time.time()
+Mac_address = ':'.join(['{:02x}'.format((MAC >> elements) & 0xff) for elements in range(0, 8*6, 8)][::-1])
+print(f"MAC Address: {Mac_address}")
+print(f"Memory used: {memory_after - memory_before:.2f} MB")
+print(f"Time taken: {ending_time - starting_time:.4f} seconds")
